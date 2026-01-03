@@ -1,149 +1,117 @@
-# Data Warehouse Analytics – SQL Exploration Project
+# SQL Exploratory Data Analysis (EDA) Project
 
-## Project Overview
-This project focuses on *exploring and analyzing a data warehouse* using SQL Server.  
-The goal is to understand the structure of the warehouse, explore dimensions and facts, and answer key business questions using analytical SQL queries.
+## 📌 Project Overview
 
-## Project Structure
+This project focuses on performing **Exploratory Data Analysis (EDA) using SQL** to understand the structure, quality, and patterns within a sales data warehouse.
 
-sql-data-warehouse-analysis/
+The goal of this project is to build a **strong analytical foundation** before moving into advanced analytics and reporting.  
+It demonstrates how SQL can be used not just for querying data, but for **systematic data understanding and validation**.
+
+---
+
+## 🎯 Objectives of the EDA
+
+The key objectives of this exploratory analysis are:
+
+- Understand database structure and table relationships
+- Explore dimensions and measures in the dataset
+- Analyze time coverage and data completeness
+- Validate data quality and consistency
+- Identify early trends and patterns
+- Prepare the dataset for advanced analytics
+
+
+## 🗂️ Project Structure
+
+sql-eda-project
 │
-├── README.md
-│
-├── sql/
-│ ├── 01_database_exploration.sql
-│ ├── 02_dimension_exploration.sql
-│ ├── 03_date_exploration.sql
-│ ├── 04_measure_analysis.sql
-│ ├── 05_magnitude_analysis.sql
-│ └── 06_ranking_analysis.sql
+├── 01_database_exploration.sql
+├── 02_dimension_exploration.sql
+├── 03_date_exploration.sql
+├── 04_measure_exploration.sql
+├── 05_magnitude_exploration.sql
+├── 06_ranking_exploration.sql
 
+## 📁 File Descriptions
 
-### SQL File Breakdown
-| File Name | Description |
-|---------|-------------|
-| 01_database_exploration.sql | Explore schemas, tables, and column metadata |
-| 02_dimension_exploration.sql | Analyze customer and product dimensions |
-| 03_date_exploration.sql | Identify time range and date coverage |
-| 04_measure_analysis.sql | Calculate key business KPIs |
-| 05_magnitude_analysis.sql | Analyze distribution across customers, products, and categories |
-| 06_ranking_analysis.sql | Identify top and bottom performers |
+### 01_database_exploration.sql
+- Explores database schemas and tables
+- Identifies fact and dimension tables
+- Checks row counts and table availability
+- Understands overall data model structure
 
-The warehouse follows a *star schema* with:
-- *Fact table*: gold.fact_sales
-- *Dimension tables*:  
-  - gold.dim_customers  
-  - gold.dim_products
+### 02_dimension_exploration.sql
+- Analyzes dimension tables such as customers and products
+- Identifies unique values and categories
+- Checks for missing or inconsistent dimension data
 
-All queries were executed using *SQL Server Management Studio (SSMS)*.
+### 03_date_exploration.sql
+- Examines date ranges in the dataset
+- Identifies earliest and latest transaction dates
+- Evaluates data coverage across years and months
+- 
+### 04_measure_exploration.sql
+- Explores key numeric measures such as:
+  - Sales amount
+  - Quantity
+  - Order counts
+- Validates aggregations and distributions
+  
+### 05_magnitude_exploration.sql
+- Analyzes the scale and spread of data
+- Identifies high-value and low-value records
+- Detects potential outliers in sales and quantity
 
----
+### 06_ranking_exploration.sql
+- Ranks entities such as products and customers
+- Identifies top and bottom performers
+- Prepares ranking logic used later in advanced analytics
 
-## 1. Database Exploration
-*Objective:* Understand the database structure.
+## 🧠 SQL Techniques Used
 
-### Tasks Performed
-- Listed all tables in the database
-- Explored column-level metadata for specific tables
+- Aggregations (`SUM`, `COUNT`, `AVG`)
+- DISTINCT analysis
+- GROUP BY and HAVING clauses
+- Basic joins between fact and dimension tables
+- Ranking logic
+- Date functions
+- Data validation queries
 
-### Key Learnings
-- Used INFORMATION_SCHEMA.TABLES to identify available objects
-- Used INFORMATION_SCHEMA.COLUMNS to understand table structures
+## 📊 Key Questions Explored
 
----
+- What tables and dimensions are available in the database?
+- What is the overall size and shape of the data?
+- What time period does the data cover?
+- Are there missing or inconsistent values?
+- Which products and customers appear most frequently?
+- How are sales and quantities distributed?
 
-## 2. Dimension Exploration
-*Objective:* Explore descriptive attributes in dimension tables.
+## 🔄 Relationship to Advanced Analytics
 
-### Customer Dimension (gold.dim_customers)
-- Identified distinct customer countries
-- Analyzed customer distribution by country and gender
-- Determined youngest and oldest customers using birthdates
+This EDA project serves as the **foundation** for the Advanced Analytics project by:
 
-### Product Dimension (gold.dim_products)
-- Explored product hierarchy (category, subcategory, product name)
-- Analyzed product counts by category
-- Calculated average product cost per category
+- Validating data readiness
+- Identifying reliable dimensions and measures
+- Establishing trust in the dataset
+- Informing the design of advanced analytical queries
 
----
+## 🛠️ Tools & Technologies
 
-## 3. Date & Time Exploration
-*Objective:* Understand the sales timeline.
-
-### Analysis Performed
-- Identified first and last order dates
-- Calculated total number of years of sales data available
-
-### Insights
-- Helped define the historical coverage of the dataset
-- Useful for time-based trend analysis
-
----
-
-## 4. Measure Exploration (Key Business Metrics)
-*Objective:* Generate high-level KPIs.
-
-### Metrics Calculated
-- Total Sales
-- Total Quantity Sold
-- Average Price
-- Total Number of Orders
-- Total Number of Products
-- Total Number of Customers
-
-### Approach
-- Used UNION ALL to consolidate multiple KPIs into a single report-style output
-
----
-
-## 5. Magnitude Analysis
-*Objective:* Understand scale and distribution.
-
-### Analysis Performed
-- Total customers by country
-- Total customers by gender
-- Total products by category
-- Total revenue generated by each category
-- Total revenue generated by each customer
-- Distribution of sold items across countries
-
-### SQL Techniques Used
-- GROUP BY
-- Aggregate functions (SUM, COUNT, AVG)
-- Joins between fact and dimension tables
-
----
-
-## 6. Ranking Analysis
-*Objective:* Identify top and bottom performers.
-
-### Analysis Performed
-- Top 5 products by revenue
-- Bottom 5 products by revenue
-- Top 10 customers by total revenue
-- Customers with the fewest orders
-
-### SQL Techniques Used
-- Window functions (DENSE_RANK)
-- CTEs (Common Table Expressions)
-- Parameterized ranking logic
-
----
-
-## Key SQL Concepts Demonstrated
-- Star schema analytics
-- Fact vs Dimension modeling
-- Aggregate functions
-- Window functions
-- Joins (INNER & LEFT JOIN)
-- CTEs
-- Business-focused analytical queries
-
----
-
-## Tools & Technologies
-- SQL Server
+- SQL Server (T-SQL)
 - SQL Server Management Studio (SSMS)
-- T-SQL
+- Relational Data Warehouse
+- GitHub for version control and portfolio presentation
+
+## ▶️ How to Use This Project
+
+1. Load the dataset into SQL Server
+2. Execute SQL files in numerical order
+3. Review outputs to understand data structure and patterns
+4. Use insights to design advanced analytical queries
+
+## ⭐ Final Note
+
+This project demonstrates a **methodical and business-aware approach to exploratory data analysis using SQL**.  
+It highlights the importance of understanding data before performing advanced analytics or building reports.
 
 
